@@ -30,7 +30,8 @@
    </section>
    <section id="registeration">
     <h2>Join us!</h2>
-    <form> 
+    <form action="{% url 'meetup-detils' meetup.slug %}" method="POST"> 
+        {% csrf_token %}
         <ul>
         {{form.as_ul}}
     </ul>
