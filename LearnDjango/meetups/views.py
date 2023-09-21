@@ -22,7 +22,7 @@ def meetup_details(request, meetup_slug):
              user_email = registration_form.cleaned_data['email']
              participant, _ = Participant.objects.get_or_create(email = user_email)
              selected_meetup.Participants.add(participant)
-             return redirect(confirm_registration)
+             return redirect(confirm_registration, meetup_slug = meetup_slug)
             
          return render(request, 'meetups/meetup-details.html',{
                   'meetup_found': True ,
@@ -33,5 +33,8 @@ def meetup_details(request, meetup_slug):
      return render(request, 'meetups/meetup-details.html',{
          'meetup_found': False
      })
-def confirm_registration(request):
-   return render(request, 'meetups/registration-success.html')
+def confirm_registration(request, meetup_slug):
+   meetup = Meetup.objects.get(slug=meetup_slug)
+   return render(request, 'meetups/registration-success.html',{
+   'organizer_eamil' : meetup.organizer_email
+   })
