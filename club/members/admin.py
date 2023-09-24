@@ -2,4 +2,6 @@ from django.contrib import admin
 from . models import Members
 
 # Register your models here.
-admin.site.register(Members)
+class MembersAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'date')
+admin.site.register(Members, MembersAdmin)

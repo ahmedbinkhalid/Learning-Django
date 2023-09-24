@@ -7,3 +7,5 @@ class Members(models.Model):
     last_name = models.CharField(max_length=15)
     phone = models.IntegerField(null=True)
     date = models.DateField(null=True)
+    # def __str__(self):
+    #   return f'{self.first_name} {self.last_name}'
