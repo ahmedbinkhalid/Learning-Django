@@ -1,0 +1,9 @@
+{% extends "master.html" %}
+{% block title %} Member's Details {% endblock %}
+
+   {% block content %} <h1>{{mymembers.first_name}} {{mymembers.last_name}}</h1> 
+   
+   <p>Phone Number: {{mymembers.phone}}</p>
+    <p>Member Since: {{mymembers.date}}</p>
+    <p>Back to: <a href="/members">Members</a></p> {% endblock %}
+    
