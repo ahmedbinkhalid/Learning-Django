@@ -1,0 +1,18 @@
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* Style the company name in the footer */
+  #company-name {
+    font-weight: bold;
+    color: #ff9900;
+  }
+  .host {
+    font-weight: bold;
+    font-style: italic;
+  }
+  
