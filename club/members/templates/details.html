@@ -1,7 +1,9 @@
 {% extends "master.html" %}
 {% block title %} Member's Details {% endblock %}
 
-   {% block content %} <h1>{{mymembers.first_name}} {{mymembers.last_name}}</h1> 
+   {% block content %}
+    <h1>Our Existing Members are</h1>
+   <h1>{{mymembers.first_name}} {{mymembers.last_name}}</h1> 
    
    <p>Phone Number: {{mymembers.phone}}</p>
     <p>Member Since: {{mymembers.date}}</p>

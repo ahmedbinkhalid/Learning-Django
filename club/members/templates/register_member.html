@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+{% block title %}Registration Form{% endblock %}
+{% block content%}
+<section>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <button>Register</button>
+            </div>
+            <!-- <input type="submit" value="Register"> -->
+        </form>
+    </div>
+</section>
+{% endblock %}

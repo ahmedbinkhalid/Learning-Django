@@ -4,6 +4,8 @@
 {% block content %} 
 <p><a href="/">Home</a></p>
 <h1>Our Members</h1> 
+<h2>Register as a member here</h2>
+    <p>To register yourself! <a href="{% url 'register_members' %}">Click here</a></p>
     <section>
         <ul>
         {% for x in mymembers %}

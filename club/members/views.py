@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # Here i am importing the HttpResponse from django.http
 from django.http import HttpResponse
 from django.template import loader
 from .models import Members
+from .forms import Membership
 
 # Create your views here.
 # Here i defined a funtion with request parameter
@@ -26,3 +27,16 @@ def details(request, id):
 def main(request):
     template = loader.get_template('main.html')
     return HttpResponse(template.render())
+
+def register_members(request):
+    template = loader.get_template('register_member.html')
+    if request.method == 'POST':
+        form = Membership(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Registered Successfuly')
+        else:
+         form = Membership()
+    
+    return HttpResponse(request, template.render(), {'form': form})
+
