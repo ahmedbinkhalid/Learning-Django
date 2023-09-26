@@ -28,15 +28,23 @@ def main(request):
     template = loader.get_template('main.html')
     return HttpResponse(template.render())
 
+# def register_members(request):
+#     if request.method == 'POST':
+#         form = Membership(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponse('Registered Successfuly')
+#         else:
+#          form = Membership()
+    
+#     return render(request, 'register_member.html', {'form': form})
 def register_members(request):
-    template = loader.get_template('register_member.html')
+    form = Membership()  # Create an instance of the form
     if request.method == 'POST':
         form = Membership(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('Registered Successfuly')
-        else:
-         form = Membership()
-    
-    return HttpResponse(request, template.render(), {'form': form})
+            return render(request, 'success.html')
+
+    return render(request, 'register_member.html', {'form': form})
 

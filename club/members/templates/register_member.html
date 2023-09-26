@@ -3,12 +3,13 @@
 {% block content%}
 <section>
     <div>
+        <p>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <div>
                 <button>Register</button>
-            </div>
+            </div></p>
             <!-- <input type="submit" value="Register"> -->
         </form>
     </div>
