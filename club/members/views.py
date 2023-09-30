@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 # Here i am importing the HttpResponse from django.http
 from django.http import HttpResponse
 from django.template import loader
@@ -47,4 +47,11 @@ def register_members(request):
             return render(request, 'success.html')
 
     return render(request, 'register_member.html', {'form': form})
+
+def delete_member(request, id):
+    form = get_object_or_404(Members,id)
+    if request.method =='POST':
+        form.delete()
+        return redirect('all_members.html')
+    return render(request, 'delete_success.html', {'form':form})
 

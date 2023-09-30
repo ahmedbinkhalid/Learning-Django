@@ -1,0 +1,12 @@
+{% extends 'master.html' %}
+{% block title%}Task's Assigned {% endblock %}
+{% block content %}
+<h1>Check Your Task</h1> 
+<section>
+    <ul>
+{% for x in myplan%}
+<a href="">{{x.firstname}} {{x.lastname}}</a>
+{% endfor%}
+</ul>
+</section>
+{% endblock %}
