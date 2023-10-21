@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import UserCreationForm, LoginForm
+from .forms import UserCreationForm, LoginForm, CreateRecordForm, UpdateRecordForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
@@ -65,6 +65,22 @@ def user_logout(request):
     auth.logout(request)
 
     return redirect("my-login")
+
+# Create a Record
+
+@login_required(login_url='my-login')
+def create_record(request):
+    form = CreateRecordForm
+    if request.method == "POST":
+        form = CreateRecordForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect("dashboard")
+        
+    context= {'form': form}
+
+    return render(request, 'webapp/create-record.html', context=context)
 
 
 
