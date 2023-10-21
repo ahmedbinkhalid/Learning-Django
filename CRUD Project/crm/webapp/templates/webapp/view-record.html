@@ -11,6 +11,7 @@
     {{record.last_name}}
 
 </strong>
+<hr>
 
 
 <div class="card-body">
@@ -38,7 +39,7 @@
 
 &nbsp;
 
-<a href="{% url '' %}" class="btn btn-danger"> Delete </a>
+<a href="{% url 'delete-record' record.id %}" class="btn btn-danger"> Delete </a>
 
 
 
