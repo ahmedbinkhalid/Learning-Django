@@ -15,4 +15,13 @@ urlpatterns = [
     path('dashboard', views.dashboard, name="dashboard"),
 
     path('create-record', views.create_record, name="create-record"),
+    
+    
+    #Adding Dynamic url (int:pk) means primary key wala element jo selected ha update kro from view page
+
+    path('update-record/<int:pk>', views.update_record, name="update-record"),
+
+    path('record/<int:pk>', views.singular_record, name="record"),
+
+    path('delete-record/<int:pk>', views.delete_record, name="delete-record"),
 ]

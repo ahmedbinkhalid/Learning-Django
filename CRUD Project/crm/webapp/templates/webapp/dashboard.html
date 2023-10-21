@@ -24,7 +24,7 @@ Create a new record
         <th scope="col">Country</th>
         <th scope="col">Date Joined</th>
 
-        <th scope="col">View</th>
+        <th scope="col"> View</th>
 
 
 
@@ -46,6 +46,7 @@ Create a new record
         <td>{{record.province}}</td>
         <td>{{record.country}}</td>
         <td>{{record.creation_date}}</td>
+        <td> <a href="{% url 'record' record.id %}">View</a> </td>
     </tr>
      {% endfor %}
 
