@@ -49,14 +49,39 @@ def my_login(request):
     return render(request, 'webapp/my-login.html', context=context)
 
 
+# Singleton
+
+class RecordManager:
+    _instances = {}
+
+    def __new__(cls, user):
+        if user not in cls._instances:
+            cls._instances[user] = super(RecordManager, cls).__new__(cls)
+            # Add any initialization logic here
+        return cls._instances[user]
+
+    def get_records(self, user):
+        return Record.objects.filter(user=user)
+
+
 # Dashboard
 @login_required(login_url='my-login')
 def dashboard(request):
-
-    my_records = Record.objects.all()
-    context = {'records' : my_records}
-
+    record_manager = RecordManager(request.user)
+    my_records = record_manager.get_records(request.user)
+    context = {'records': my_records}
     return render(request, 'webapp/dashboard.html', context=context)
+
+
+
+# # Dashboard
+# @login_required(login_url='my-login')
+# def dashboard(request):
+
+#     my_records = Record.objects.all()
+#     context = {'records' : my_records}
+
+#     return render(request, 'webapp/dashboard.html', context=context)
 
 # Logout a User
 
@@ -74,6 +99,8 @@ def create_record(request):
     if request.method == "POST":
         form = CreateRecordForm(request.POST)
         if form.is_valid():
+            record = form.save(commit=False)
+            record.user = request.user
             form.save()
 
             return redirect("dashboard")
