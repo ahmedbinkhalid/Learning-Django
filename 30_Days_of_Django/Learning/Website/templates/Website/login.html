@@ -1,0 +1,11 @@
+{% extends 'Website/base.html' %}
+{% block content %}
+<h3>Login here!</h3>
+<form method="POST" autocomplete="off">
+{% csrf_token %}
+{{ form }}
+<button type="submit"> Login</button>
+
+</form>
+
+{% endblock %}

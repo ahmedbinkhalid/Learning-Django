@@ -38,10 +38,12 @@ def my_login(request):
         if form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
+            print(username)
 
             user = authenticate(request, username= username, password= password)
             if user is not None:
                 auth.login(request, user)
+                request.user = user
 
                 return redirect("dashboard")
 
@@ -69,6 +71,7 @@ class RecordManager:
 def dashboard(request):
     record_manager = RecordManager(request.user)
     my_records = record_manager.get_records(request.user)
+    print(request.user)
     context = {'records': my_records}
     return render(request, 'webapp/dashboard.html', context=context)
 

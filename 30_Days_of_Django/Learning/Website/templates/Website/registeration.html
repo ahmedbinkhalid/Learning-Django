@@ -1,0 +1,12 @@
+{% extends 'Website/base.html' %}
+
+{% block content %}
+
+<h3>Create Your Account here!</h3>
+<form method="POST" autocomplete="off">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Register</button>
+</form>
+
+{% endblock %}

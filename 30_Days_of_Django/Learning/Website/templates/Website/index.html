@@ -1,0 +1,9 @@
+{% extends 'Website/base.html' %}
+
+{% block content%}
+<h1>Welcome to my Webiste</h1>
+<h3>This is from my Journey of Learning Django and Practicing 30 Days straight</h3>
+<p>In this website, We'll basically do some CRUD operation to get warmup for the upcoming Projects</p>
+<a type="button" href="{% url 'my-login' %}">login</a> <br><br>
+<a type="button" href="{% url 'my-register' %}">Create Account/Register</a>
+{% endblock %}

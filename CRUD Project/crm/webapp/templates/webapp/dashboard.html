@@ -1,6 +1,9 @@
 {% extends 'webapp/base.html '%}
 {% block content %}
 <h5>Welcome to the dashboard, {{user}}</h5>
+<script>
+    console.log({user})
+</script>
 <hr>
 
 <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
