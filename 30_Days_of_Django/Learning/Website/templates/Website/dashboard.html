@@ -2,6 +2,38 @@
 {% block content %}
 
 <h3>Welcome, {{user}}</h3>
-<a type="button" href="">Create Record</a>
+<a type="button" href="{% url 'create-record'%}">Create Record</a>
+<table>
+    <thead>
+        <tr>
+        <th scope="col">ID</th> <br>
+        <th scope="col">Full Name</th><br>
+        <th scope="col">Email</th><br>
+        <th scope="col">Phone Number</th><br>
+        <th scope="col">Address</th><br>
+        <th scope="col">City</th><br>
+        <th scope="col">Country</th><br>
+        <th scope="col">View</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if records %}
+    {% for record in records %}
+    <tr>
+    <td style="align-self: center;">{{record.id}}</td>
+    <td style="align-self: center;">{{record.first_name}} {{record.last_name}}</td>
+    <td style="align-self: center;">{{record.email}}</td>
+    <td style="align-self: center;">{{record.phone}}</td>
+    <td style="align-self: center;">{{record.address}}</td>
+    <td style="align-self: center;">{{record.city}}</td>
+    <td style="align-self: center;">{{record.country}}</td></tr>
+    <td> <a href="{% url 'record' record.id %}">View</a> </td>
+    
+
+
+    {% endfor %}
+    {% endif %}
+</tbody>
+</table>
 
 {% endblock %}
