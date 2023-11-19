@@ -23,3 +23,8 @@ class CreateRecord(forms.ModelForm):
     class Meta:
         model = Record
         fields = ['first_name','last_name','email','phone','address','city','country']
+
+class UpdateRecordForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = ['first_name','last_name','email','phone','address','city','country']

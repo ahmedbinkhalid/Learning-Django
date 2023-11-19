@@ -27,5 +27,6 @@
 <p>  <strong> Date Joined: </strong>{{record.creation_date}} </p>
 </div>
 </div>
-<a href="{% url 'delete-record' record.id %}">Delete</a>
+<a href="{% url 'delete-record' record.id %}">Delete</a><br><br>
+<a href="{% url 'update' record.id %}">Update</a>
 {% endblock %}

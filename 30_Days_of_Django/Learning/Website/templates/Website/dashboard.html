@@ -1,7 +1,8 @@
 {% extends 'Website/base.html '%}
 {% block content %}
 
-<h3>Welcome, {{user}}</h3>
+<h3>Welcome, {{user}}</h3><br>
+<h2><a type="button" href="{% url 'my-logout' %}">Logout</a></h2>
 <a type="button" href="{% url 'create-record'%}">Create Record</a>
 <table>
     <thead>
@@ -26,8 +27,8 @@
     <td style="align-self: center;">{{record.phone}}</td>
     <td style="align-self: center;">{{record.address}}</td>
     <td style="align-self: center;">{{record.city}}</td>
-    <td style="align-self: center;">{{record.country}}</td></tr>
-    <td> <a href="{% url 'record' record.id %}">View</a> </td>
+    <td style="align-self: center;">{{record.country}}</td>
+    <td> <a href="{% url 'record' record.id %}">View</a> </td></tr>
     
 
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import UserCreationForm, LoginForm, CreateRecord
+from .forms import UpdateRecordForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import auth
 from django.contrib.auth.decorators import login_required
@@ -69,6 +70,26 @@ def delete_record(request, pk):
     record = Record.objects.get(id=pk)
     record.delete()
     return redirect('dashboard')
+
+# Update Record View
+@login_required(login_url='my-login')
+def update_record(request, pk):
+    record = Record.objects.get(id=pk)
+    form = UpdateRecordForm(instance=record)
+    if request.method == 'POST':
+        form = UpdateRecordForm(request.POST, instance=record)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    context = {'form': form}
+    return render(request, 'Website/update-record.html', context=context)
+
+# Logout Button
+@login_required(login_url='my-login')
+def logout(request):
+    auth.logout(request)
+    return redirect('my-login')
+
 
 
         
