@@ -71,6 +71,9 @@ def delete_record(request, pk):
     record.delete()
     return redirect('dashboard')
 
+def back(req):
+    return redirect('dashboard')
+
 # Update Record View
 @login_required(login_url='my-login')
 def update_record(request, pk):
@@ -89,6 +92,9 @@ def update_record(request, pk):
 def logout(request):
     auth.logout(request)
     return redirect('my-login')
+
+
+
 
 
 
