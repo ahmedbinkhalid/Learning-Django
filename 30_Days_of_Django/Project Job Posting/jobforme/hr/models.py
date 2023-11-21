@@ -17,7 +17,7 @@ class JobPost(models.Model):
     lastdatetoapply = models.DateField()
 
     def __str__(self):
-        return str(self.title)
+        return f"{self.id} {self.title}, {self.companyName}, {self.lastdatetoapply}"
 
 STATUS_CHOICE = ((
     'panding', 'panding'),
