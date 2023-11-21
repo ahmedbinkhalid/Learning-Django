@@ -20,8 +20,8 @@ class JobPost(models.Model):
         return str(self.title)
 
 STATUS_CHOICE = ((
-    'panding', 'panding'
-    'Selected', 'Selected'
+    'panding', 'panding'),
+    ('Selected', 'Selected'
 ))
 class CandidateApplication(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
