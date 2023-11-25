@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     path('hr-dash', views.hrHome, name="hr-dash"),
     path('post-job', views.post_job, name="post-job"),
-    path('candidate-view', views.candidate_view, name="candidate-view"),
+    path('candidate-view/<int:id>', views.candidate_view, name="candidate-view"),
 ]

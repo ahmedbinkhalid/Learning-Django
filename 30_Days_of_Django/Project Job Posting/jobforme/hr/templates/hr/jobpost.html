@@ -143,7 +143,9 @@
     <div class="container">
          {% include 'hr/navbar.html' %}
         <div class="content">
-            
+            {% if msg %}
+            <p>jod added successfully</p>
+            {% endif %}
             <h2>Upload New Job Post</h2>
             <div class="upload-form">
                 <form method="POST" autocomplete="off">

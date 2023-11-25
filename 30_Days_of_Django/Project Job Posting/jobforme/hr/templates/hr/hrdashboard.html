@@ -127,9 +127,9 @@
           <p>Posted on: {{job.lastdatetoapply}}</p>
           <div class="apply-count">
             <i class="fas fa-users"></i>
-            <span>{{job.applyCount}} Candidates Applied</span>
+            <span>{{job.applycount}} Candidates Applied</span>
           </div>
-          <button class="details-button"><a href="{% url 'candidate-view' %}" style="text-decoration: none; color: inherit;">See Details</a></button>
+          <button class="details-button"><a href="{% url 'candidate-view' job.id %}" style="text-decoration: none; color: inherit;">See Details</a></button>
         </div>
         {% endfor %}
 
