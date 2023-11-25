@@ -1,0 +1,8 @@
+{% extends 'users/base.html'%}
+{% block content%}
+
+<h1><a type="button" href="{% url 'register-host' %}">Register as Host</a></h1><br><br>
+<h1><a type="button" href="{% url 'reg-voter' %}">Register as Voter</a></h1><br><br>
+<h1><a type="button" href="{% url 'login-host' %}">Login as Host</a></h1><br><br>
+<h1><a type="button" href="{% url 'login-voter' %}">Login as Voter</a></h1>
+{% endblock %}
