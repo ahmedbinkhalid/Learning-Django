@@ -1,0 +1,38 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<h1>Course List</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Course ID</th>
+      <th scope="col">Course Title</th>
+      <th scope="col">Instructor</th>
+      <th scope="col">Capacity</th>
+      <th scope="col">Open Seats</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in object_list %}
+      <tr>
+        <td>{{ course.course_id }}</td>
+        <td>{{ course.course_title }}</td>
+        <td>{{ course.instructor }}</td>
+        <td>{{ course.capacity }}</td>
+        <td>{{ course.open_seats }}</td>
+        <td>
+          <a href="{% url 'courses:register' course.id %}" class="btn btn-primary">Register</a>
+          {% if course.open_seats > 0 %}
+            <a href="{% url 'courses:drop' course.id %}" class="btn btn-danger">Drop</a>
+          {% endif %}
+          <a href="{% url 'courses:delete' course.id %}" class="btn btn-warning">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{% url 'courses:add' %}" class="btn btn-success">Add New Course</a>
+{% endblock %}
