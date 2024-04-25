@@ -1,0 +1,17 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<h1>Drop from Course</h1>
+
+<p>Enter the course ID to drop from:</p>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="course_id">Course ID:</label>
+    <input type="text" class="form-control" id="course_id" name="course_id" required>
+  </div>
+  <button type="submit" class="btn btn-danger">Drop</button>
+  <a href="{% url 'courses:list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

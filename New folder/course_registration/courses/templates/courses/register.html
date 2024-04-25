@@ -1,0 +1,16 @@
+{% extends 'courses/base.html' %}
+
+{% block content %}
+<h1>Register for Course</h1>
+
+<p>Enter the course ID to register for:</p>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="course_id">Course ID:</label>
+    <input type="text" class="form-control" id="course_id" name="course_id" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock %}
